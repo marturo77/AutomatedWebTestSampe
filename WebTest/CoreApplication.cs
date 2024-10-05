@@ -1,5 +1,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System.Configuration;
 
 namespace AutomatedLibrary
 {
@@ -26,8 +27,11 @@ namespace AutomatedLibrary
         /// </summary>
         public void Start()
         {
+            // Obtén la URL desde la configuración
+            string baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
+
             // Navegar a YouTube
-            driver.Navigate().GoToUrl("https://www.youtube.com");
+            driver.Navigate().GoToUrl(baseUrl);
             driver.Manage().Window.Maximize();
         }
 

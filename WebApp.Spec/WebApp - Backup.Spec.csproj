@@ -7,18 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App.config" />
     <None Remove="appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <ApplicationDefinition Include="App.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </ApplicationDefinition>
-    <ApplicationDefinition Include="appsettings.json" />
+    <Compile Include="appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
     <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
