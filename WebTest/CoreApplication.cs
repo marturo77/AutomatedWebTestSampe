@@ -28,8 +28,7 @@ namespace AutomatedLibrary
         public void Start()
         {
             // Obtén la URL desde la configuración
-            string baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
-
+            string baseUrl = "http://www.youtube.com";
             // Navegar a YouTube
             driver.Navigate().GoToUrl(baseUrl);
             driver.Manage().Window.Maximize();
@@ -45,7 +44,7 @@ namespace AutomatedLibrary
 
             // Espera hasta que el input de búsqueda esté visible
             IWebElement inputSearch = wait.Until(drv => drv.FindElement(By.CssSelector("input#search")));
-            inputSearch.SendKeys("petro");
+            inputSearch.SendKeys("spec flow tutorial");
 
             // Espera hasta que el botón de búsqueda sea clickeable
             IWebElement button = wait.Until(drv => drv.FindElement(By.CssSelector("button#search-icon-legacy")));
