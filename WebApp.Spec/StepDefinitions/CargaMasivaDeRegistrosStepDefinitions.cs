@@ -1,4 +1,3 @@
-using AutomatedLibrary;
 using NUnit.Framework;
 using WebApp.Spec.Support;
 
@@ -29,7 +28,7 @@ namespace WebApp.Spec.StepDefinitions
         {
             try
             {
-                context.Application.MakeLogin();
+                context.Application.StartApplication();
             }
             catch (Exception ex)
             {

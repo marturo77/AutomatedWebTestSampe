@@ -1,5 +1,4 @@
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
 namespace AutomatedLibrary
@@ -26,11 +25,10 @@ namespace AutomatedLibrary
         /// <summary>
         ///
         /// </summary>
-        [Test]
-        public void MakeLogin()
+        public void StartApplication()
         {
             // Navegar a YouTube
-            driver.Navigate().GoToUrl("https://www.youtubsde.com");
+            driver.Navigate().GoToUrl("https://www.youtube.com");
             driver.Manage().Window.Maximize();
 
             // Configura un wait explícito
@@ -51,7 +49,6 @@ namespace AutomatedLibrary
         /// <summary>
         ///
         /// </summary>
-        [TearDown]
         public void Close()
         {
             // Cierra el driver después de cada prueba
