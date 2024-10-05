@@ -1,5 +1,5 @@
+using AutomatedLibrary;
 using NUnit.Framework;
-using WebApp.Spec.Support;
 
 namespace WebApp.Spec.StepDefinitions
 {
@@ -12,15 +12,16 @@ namespace WebApp.Spec.StepDefinitions
         /// <summary>
         ///
         /// </summary>
-        private readonly CoreContext context;
+        private CoreApplication app;
 
         /// <summary>
         ///
         /// </summary>
         /// <param name="context"></param>
-        public CargaMasivaDeRegistrosStepDefinitions(CoreContext c)
+        public CargaMasivaDeRegistrosStepDefinitions(ScenarioContext scenarioContext)
         {
-            context = c;
+            // Recupera la instancia de CoreApplication del contexto del escenario
+            app = scenarioContext["Application"] as CoreApplication;
         }
 
         [Given(@"Logueado en el sistema")]
@@ -28,11 +29,11 @@ namespace WebApp.Spec.StepDefinitions
         {
             try
             {
-                context.Application.StartApplication();
+                app.Start();
             }
             catch (Exception ex)
             {
-                context.Application.Close();
+                app.Close();
                 Assert.Fail($"La prueba falló debido a: {ex.Message}");
             }
         }

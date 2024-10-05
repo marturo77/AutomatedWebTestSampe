@@ -6,7 +6,6 @@ namespace AutomatedLibrary
     /// <summary>
     ///
     /// </summary>
-    [TestFixture, Timeout(15000)]
     public class CoreApplication
     {
         /// <summary>
@@ -25,7 +24,7 @@ namespace AutomatedLibrary
         /// <summary>
         ///
         /// </summary>
-        public void StartApplication()
+        public void Start()
         {
             // Navegar a YouTube
             driver.Navigate().GoToUrl("https://www.youtube.com");
