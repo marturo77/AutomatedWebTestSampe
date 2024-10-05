@@ -27,14 +27,7 @@ namespace WebApp.Spec.StepDefinitions
         [Given(@"Logueado en el sistema")]
         public void GivenLogueadoEnElSistema()
         {
-            try
-            {
-                app.Start();
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail($"La prueba falló debido a: {ex.Message}");
-            }
+            app.Start();
         }
 
         [Given(@"que existe un archivo CSV con el listado de pólizas con todos los campos requeridos")]
