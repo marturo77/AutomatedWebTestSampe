@@ -1,22 +1,27 @@
 using AutomatedLibrary;
 using NUnit.Framework;
+using WebApp.Spec.Support;
 
 namespace WebApp.Spec.StepDefinitions
 {
+    /// <summary>
+    ///
+    /// </summary>
     [Binding]
     public class CargaMasivaDeRegistrosStepDefinitions
     {
         /// <summary>
         ///
         /// </summary>
-        private CoreApplication app;
+        private readonly CoreContext context;
 
-        // Si CoreApplication necesita inicialización más compleja, usa [BeforeScenario]
-        [BeforeScenario]
-        public void SetUp()
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="context"></param>
+        public CargaMasivaDeRegistrosStepDefinitions(CoreContext c)
         {
-            app = new CoreApplication();
-            app.Inicializate();
+            context = c;
         }
 
         [Given(@"Logueado en el sistema")]
@@ -24,10 +29,11 @@ namespace WebApp.Spec.StepDefinitions
         {
             try
             {
-                app.MakeLogin();
+                context.Application.MakeLogin();
             }
             catch (Exception ex)
             {
+                context.Application.Close();
                 Assert.Fail($"La prueba falló debido a: {ex.Message}");
             }
         }

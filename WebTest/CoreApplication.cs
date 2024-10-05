@@ -13,31 +13,15 @@ namespace AutomatedLibrary
         /// <summary>
         ///
         /// </summary>
-        [SetUp]
-        public void Inicializate()
+        public void Inicializate(IWebDriver d)
         {
-            // Inicializa el driver antes de cada prueba
-            driver = new FirefoxDriver();
+            driver = d;
         }
 
         /// <summary>
         /// Driver para ejecutar la prueba
         /// </summary>
         private IWebDriver driver;
-
-        /// <summary>
-        ///
-        /// </summary>
-        [TearDown]
-        public void Teardown()
-        {
-            // Cierra el driver después de cada prueba
-            if (driver != null)
-            {
-                driver.Quit();
-                driver.Dispose();
-            }
-        }
 
         /// <summary>
         ///
@@ -62,6 +46,20 @@ namespace AutomatedLibrary
 
             // Espera para observar el resultado (solo como ejemplo)
             wait.Until(drv => drv.FindElement(By.CssSelector("#contents")).Displayed);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [TearDown]
+        public void Close()
+        {
+            // Cierra el driver después de cada prueba
+            if (driver != null)
+            {
+                driver.Quit();
+                driver.Dispose();
+            }
         }
     }
 }
