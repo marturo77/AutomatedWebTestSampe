@@ -33,6 +33,7 @@ namespace WebApp.Spec.StepDefinitions
         [Given(@"que existe un archivo CSV con el listado de pólizas con todos los campos requeridos")]
         public void GivenQueExisteUnArchivoCSVConElListadoDePolizasConTodosLosCamposRequeridos()
         {
+            app.Operate();
         }
 
         [Given(@"que el usuario está en la página de carga masiva de pólizas")]

@@ -29,7 +29,13 @@ namespace AutomatedLibrary
             // Navegar a YouTube
             driver.Navigate().GoToUrl("https://www.youtube.com");
             driver.Manage().Window.Maximize();
+        }
 
+        /// <summary>
+        ///
+        /// </summary>
+        public void Operate()
+        {
             // Configura un wait explícito
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
 
