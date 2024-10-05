@@ -1,5 +1,4 @@
 using AutomatedLibrary;
-using NUnit.Framework;
 
 namespace WebApp.Spec.StepDefinitions
 {
