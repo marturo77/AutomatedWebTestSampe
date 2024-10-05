@@ -1,11 +1,37 @@
-using System;
-using TechTalk.SpecFlow;
+using AutomatedLibrary;
+using NUnit.Framework;
 
 namespace WebApp.Spec.StepDefinitions
 {
     [Binding]
     public class CargaMasivaDeRegistrosStepDefinitions
     {
+        /// <summary>
+        ///
+        /// </summary>
+        private CoreApplication app;
+
+        // Si CoreApplication necesita inicialización más compleja, usa [BeforeScenario]
+        [BeforeScenario]
+        public void SetUp()
+        {
+            app = new CoreApplication();
+            app.Inicializate();
+        }
+
+        [Given(@"Logueado en el sistema")]
+        public void GivenLogueadoEnElSistema()
+        {
+            try
+            {
+                app.MakeLogin();
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail($"La prueba falló debido a: {ex.Message}");
+            }
+        }
+
         [Given(@"que existe un archivo CSV con el listado de pólizas con todos los campos requeridos")]
         public void GivenQueExisteUnArchivoCSVConElListadoDePolizasConTodosLosCamposRequeridos()
         {
